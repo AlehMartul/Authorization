@@ -6,6 +6,6 @@ public class AuthorizationTest extends BaseTest{
     @Test
     public void testAuthorization() {
         MainPage mainPage = new MainPage();
-        Assert.assertTrue(mainPage.isMainPageLoaded());
+        Assert.assertTrue(mainPage.isPageLoaded(), "Main page didn't load");
     }
 }

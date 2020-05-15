@@ -4,16 +4,22 @@ import org.openqa.selenium.By;
 
 public class MainPage extends BasePage {
 
-    private ILabel authorizationSucceed = AqualityServices.getElementFactory()
+    private ILabel lblAuthorizationSucceed = AqualityServices.getElementFactory()
             .getLabel(By.xpath("//pre[contains(@style, 'word')]"), "authorizationSucceed");
-    private String authorized = "true";
+    private static final String AUTHORIZED = "true";
+
+
+    public MainPage() {
+        super(By.xpath("//pre[contains(@style, 'word')]"), "MainPage");
+    }
 
     private String getMainPageText() {
-        String mainPageText = authorizationSucceed.getText();
+        String mainPageText = lblAuthorizationSucceed.getText();
         return mainPageText;
     }
 
-    public boolean isMainPageLoaded() {
-        return getMainPageText().contains(authorized);
+    @Override
+    public boolean isPageLoaded() {
+        return getMainPageText().contains(AUTHORIZED);
     }
 }
